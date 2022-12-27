@@ -1,0 +1,26 @@
+﻿@model mdlMyBlog.Blog
+
+@{
+    ViewBag.Title = "Delete";
+    ViewBag.ContentTitle = "Delete A Post";
+    ViewBag.ContentSubtitle = "Make sure you actually want to delete this";
+}
+
+<div class="col-md-10 col-lg-8 col-xl-7">
+
+    <p>@Html.DisplayFor(model => model.Title)</p>
+    <p>@Html.DisplayFor(model => model.TitleDesc)</p>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger text-uppercase" />
+            @Html.ActionLink("Back to Home Page", "Index", new { controller = "Home"}, new { @class = "btn btn-default text-uppercase"})
+        </div>
+    }
+
+</div>
+
+

@@ -1,0 +1,39 @@
+﻿@model mdlMyBlog.Blog
+
+@{
+    string tgl = Html.DisplayFor(model => model.CreatedAt).ToString();
+    DateTime date = DateTime.Parse(tgl);
+    ViewBag.Title = "Details";
+    ViewBag.ContentTitle = "";
+    ViewBag.ContentSubtitle = Html.DisplayFor(model => model.TitleDesc);
+    ViewBag.ContentDate = $"Posted by {Html.DisplayFor(model => model.Author)} on {date.ToString("dddd, dd-MMMM-yyyy")}";
+}
+
+<h2>@Html.DisplayFor(model => model.Title)</h2>
+
+<div class="col-md-10 col-lg-8 col-xl-7">
+
+    @{
+        if (Session["username"] != null)
+        {
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.id }, new { @class = "btn btn-warning text-uppercase" })
+            </p>
+        }
+    }
+
+    <p>@Html.DisplayFor(model => model.Content)</p>
+
+
+    @{
+        if (Session["username"] != null)
+        {
+        <p>
+            @Html.ActionLink("Delete", "Delete", new { id = Model.id }, new { @class = "btn btn-danger text-uppercase" })
+            @Html.ActionLink("Back", "Index", new { controller = "Home" }, new { @class = "btn btn-primary text-uppercase" })
+        </p>
+        }
+    }
+
+</div>
+

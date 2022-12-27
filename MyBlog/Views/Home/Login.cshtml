@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/_loginLayout.cshtml";
+}
+
+<form method="post">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="Username">
+        <label for="floatingInput">Username</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="Password">
+        <label for="floatingPassword">Password</label>
+    </div>
+
+    <div class="d-grid">
+        <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">
+            Sign in
+        </button>
+    </div>
+    <div class="d-grid">
+        @Html.ActionLink("Go Back", "Index", new { controller = "Home" }, htmlAttributes: new { @class = "btn btn-default fw-normal"})
+    </div>
+
+</form>
+

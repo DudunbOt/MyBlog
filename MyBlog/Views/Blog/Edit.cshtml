@@ -6,6 +6,8 @@
     ViewBag.ContentSubtitle = "Modify Your Post";
 }
 
+<script src="~/Assets/ckeditor/ckeditor.js"></script>
+
 <h2>Edit</h2>
 
 
@@ -34,10 +36,10 @@
             </div>
 
             <div class="form-floating">
-                @Html.TextAreaFor(model => model.Content, htmlAttributes: new { @class = "form-control", @style = "height: 12rem" })
-                @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" }) <br /> <br />
+                @Html.TextAreaFor(model => model.Content, htmlAttributes: new { @id = "CKEditor", @class = "form-control", @style = "height: 12rem", @placeholder = "Content" })
                 @Html.ValidationMessageFor(model => model.Content, "", new { @class = "invalid-feedback" })
-
+                <script>CKEDITOR.replace("CKEditor")</script>
             </div>
 
             <div class="form-floating">

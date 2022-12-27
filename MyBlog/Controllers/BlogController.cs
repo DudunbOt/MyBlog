@@ -39,7 +39,7 @@ namespace MyBlog.Controllers
             return View(blog);
         }
 
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult Create(FormCollection param)
         {
             Blog blog = new Blog();
@@ -76,7 +76,7 @@ namespace MyBlog.Controllers
             return View(data);
         }
 
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult Edit(FormCollection param, int id)
         {
             var data = _blogService.GetById(id);

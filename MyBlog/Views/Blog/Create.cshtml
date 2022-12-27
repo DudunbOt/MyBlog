@@ -17,23 +17,22 @@
                 
                 @Html.ValidationSummary(true, "", new { @class = "invalid-feedback" })
                 <div class="form-floating">
-                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @placeholder = "Title" } })
                     @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
                     @Html.ValidationMessageFor(model => model.Title, "", new { @class = "invalid-feedback" })
 
                 </div>
 
                 <div class="form-floating">
-                    @Html.EditorFor(model => model.TitleDesc, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.TitleDesc, new { htmlAttributes = new { @class = "form-control", @placeholder = "Subtitle" } })
                     @Html.LabelFor(model => model.TitleDesc, htmlAttributes: new { @class = "control-label col-md-2" })
                     @Html.ValidationMessageFor(model => model.TitleDesc, "", new { @class = "invalid-feedback" })
                 </div>
-
                 <div class="form-floating">
-                    @Html.TextAreaFor(model => model.Content, htmlAttributes: new { @class = "form-control", @style = "height: 12rem"})
-                    @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" }) <br /> <br />
+                    @Html.TextAreaFor(model => model.Content, htmlAttributes: new { @id = "CKEditor", @class = "form-control", @style = "height: 12rem", @placeholder = "Content" })
                     @Html.ValidationMessageFor(model => model.Content, "", new { @class = "invalid-feedback" })
-
+                    <script>CKEDITOR.replace("CKEditor")</script>
                 </div>
 
                 <div class="form-floating">
@@ -46,7 +45,7 @@
                 </div>
 
                 <div class="form-floating">
-                    @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control", @placeholder = "" } })
                     @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label col-md-2" })
                     @Html.ValidationMessageFor(model => model.Author, "", new { @class = "invalid-feedback" })
 

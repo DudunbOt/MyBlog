@@ -25,7 +25,7 @@ namespace daoInSQLMyBlog
 
         public List<Blog> GetAll()
         {
-            return Db.Blogs.ToList();
+            return Db.Blogs.OrderByDescending(o => o.CreatedAt).ToList();
         }
 
         public Blog GetById(int id)
